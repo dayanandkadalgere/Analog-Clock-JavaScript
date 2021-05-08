@@ -1,0 +1,90 @@
+*, *::before, ::after{
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to bottom right, #33ccff 0%, #ff9933 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .clock{
+        height: 400px;
+        width: 400px;
+        background: rgba(255, 255, 255, .8);
+        border-radius: 50%;
+        border: solid black 5px;
+        position: relative;
+
+        
+    &::after{
+        content: '';
+        position: absolute;
+        background: #000;
+        z-index: 15;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+
+        .number{
+            --rotation: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            transform: rotate(var(--rotation));
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .number1{ --rotation:30deg }
+        .number2{ --rotation:60deg }
+        .number3{ --rotation:90deg }
+        .number4{ --rotation:120deg }
+        .number5{ --rotation:150deg }
+        .number6{ --rotation:180deg }
+        .number7{ --rotation:210deg }
+        .number8{ --rotation:240deg }
+        .number9{ --rotation:270deg }
+        .number10{ --rotation:300deg }
+        .number11{ --rotation:330deg }
+
+        .hand{
+            --rotation: 0;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            background: #000;
+            transform-origin: bottom;
+            transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+            border: solid 1px #fff;
+            z-index: 1;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .hour{
+            width: 20px;
+            height: 30%;
+        }
+
+        .minute{
+            width: 15px;
+            height: 35%;
+        }
+
+        .second{
+            width: 10px;
+            height: 40%;
+            background: red;
+        }
+    }
+
+    
+}
